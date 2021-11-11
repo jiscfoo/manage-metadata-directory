@@ -105,7 +105,7 @@ my @source_files;
 my %target_files;
 
 my $source_dir = abs_path(File::Spec->canonpath($opts{s}));
-debug('Source dir = %s', $source_dir);
+trace('Source dir = %s', $source_dir);
 
 opendir(S, $opts{s}) or die "Unable to open source directory ($opts{s}): $!";
 while(my $f = readdir(S)) {
@@ -121,7 +121,7 @@ if($opts{t}) {
     closedir(D);
 }
 
-info('Starting to process %d files', scalar @source_files);
+debug('Starting to process %d files', scalar @source_files);
 
 foreach my $filename (@source_files) {
     my $f = "$opts{s}/$filename";
