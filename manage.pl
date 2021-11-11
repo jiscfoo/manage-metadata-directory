@@ -26,7 +26,7 @@ sub msg($;@) {
 sub error($;@) {
     return unless $LOGLEVEL >= 1;
     my ($s, @vals) = @_;
-    msg('ERROR  ' . $s, @vals);
+    msg('ERROR   ' . $s, @vals);
 }
 sub warning($;@) {
     return unless $LOGLEVEL >= 2;
@@ -41,17 +41,17 @@ sub notice($;@) {
 sub info($;@) {
     return unless $LOGLEVEL >= 4;
     my ($s, @vals) = @_;
-    msg('INFO   ' . $s, @vals);
+    msg('INFO    ' . $s, @vals);
 }
 sub debug($;@) {
     return unless $LOGLEVEL >= 5;
     my ($s, @vals) = @_;
-    msg('DEBUG  ' . $s, @vals);
+    msg('DEBUG   ' . $s, @vals);
 }
 sub trace($;@) {
     return unless $LOGLEVEL >= 6;
     my ($s, @vals) = @_;
-    msg('TRACE  ' . $s, @vals);
+    msg('TRACE   ' . $s, @vals);
 }
 
 sub get_entityid($) {
