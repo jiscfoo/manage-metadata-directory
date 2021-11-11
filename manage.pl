@@ -4,6 +4,7 @@ use strict;
 use warnings;
 use Carp::Assert;
 use Getopt::Std;
+use POSIX qw(strftime);
 
 use XML::XPath;
 use XML::XPath::XMLParser;
@@ -19,7 +20,7 @@ my $LOGLEVEL = 4;
 
 sub msg($;@) {
     my ($s, @vals) = @_;
-    printf('[%s] ' . $s . "\n", 'time', @vals);
+    printf('[%s] ' . $s . "\n", strftime('%F %T', localtime), @vals);
 }
 
 sub error($;@) {
