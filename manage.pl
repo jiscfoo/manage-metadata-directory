@@ -86,7 +86,7 @@ sub set_symlink($$;$) {
 getopts('hts:d:v:', \%opts);
 if($opts{h} or !($opts{s} and $opts{d})) {
     print <<EOF;
-Usage: manage.pl -s <source> -d <target> [ -t ]
+Usage: manage.pl -s <source> -d <target> [ -t ] [ -v num ]
 
   -s dir   source
   -d dir   target / destination
