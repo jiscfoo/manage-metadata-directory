@@ -83,14 +83,15 @@ sub set_symlink($$;$) {
     info('Created symlink %s <-- %s', $source, $target);
 }
 
-getopts('hts:d:', \%opts);
+getopts('hts:d:v:', \%opts);
 if($opts{h} or !($opts{s} and $opts{d})) {
     print <<EOF;
 Usage: manage.pl -s <source> -d <target> [ -t ]
 
-  -s   source
-  -d   target / destination
-  -t   tidy dangling files
+  -s dir   source
+  -d dir   target / destination
+  -t       tidy dangling files
+  -v num   log level (0-6; default=4)
 
 EOF
     exit(0);
@@ -98,6 +99,7 @@ EOF
 
 assert(-d $opts{s});
 assert(-d $opts{d});
+$LOGLEVEL = $opts{v} if $opts{v};
 
 my @source_files;
 my %target_files;
