@@ -23,36 +23,12 @@ sub msg($;@) {
     printf('[%s] ' . $s . "\n", strftime('%F %T', localtime), @vals);
 }
 
-sub error($;@) {
-    return unless $LOGLEVEL >= 1;
-    my ($s, @vals) = @_;
-    msg('ERROR   ' . $s, @vals);
-}
-sub warning($;@) {
-    return unless $LOGLEVEL >= 2;
-    my ($s, @vals) = @_;
-    msg('WARNING ' . $s, @vals);
-}
-sub notice($;@) {
-    return unless $LOGLEVEL >= 3;
-    my ($s, @vals) = @_;
-    msg('NOTICE  ' . $s, @vals);
-}
-sub info($;@) {
-    return unless $LOGLEVEL >= 4;
-    my ($s, @vals) = @_;
-    msg('INFO    ' . $s, @vals);
-}
-sub debug($;@) {
-    return unless $LOGLEVEL >= 5;
-    my ($s, @vals) = @_;
-    msg('DEBUG   ' . $s, @vals);
-}
-sub trace($;@) {
-    return unless $LOGLEVEL >= 6;
-    my ($s, @vals) = @_;
-    msg('TRACE   ' . $s, @vals);
-}
+sub error($;@)   { return unless $LOGLEVEL >= 1; my ($s, @vals) = @_; msg('ERROR   ' . $s, @vals); }
+sub warning($;@) { return unless $LOGLEVEL >= 2; my ($s, @vals) = @_; msg('WARNING ' . $s, @vals); }
+sub notice($;@)  { return unless $LOGLEVEL >= 3; my ($s, @vals) = @_; msg('NOTICE  ' . $s, @vals); }
+sub info($;@)    { return unless $LOGLEVEL >= 4; my ($s, @vals) = @_; msg('INFO    ' . $s, @vals); }
+sub debug($;@)   { return unless $LOGLEVEL >= 5; my ($s, @vals) = @_; msg('DEBUG   ' . $s, @vals); }
+sub trace($;@)   { return unless $LOGLEVEL >= 6; my ($s, @vals) = @_; msg('TRACE   ' . $s, @vals); }
 
 sub get_entityid($) {
     my $filename = shift;
